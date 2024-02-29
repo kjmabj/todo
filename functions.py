@@ -52,6 +52,17 @@ def show():
     # new_todos = [item.strip('\n') for item in todos]
 
 
+def get_todos():
+    with open(FILEPATH, 'r') as file:
+        todos = file.readlines()
+
+    if not todos:
+        return
+
+    else:
+        return todos
+
+
 def edit(action):
     with open(FILEPATH, 'r') as file:
         todos = file.readlines()
