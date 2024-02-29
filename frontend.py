@@ -33,18 +33,24 @@ while True:
     event, values = window.read()
     match event:
         case 'Add':
-            action = event + " " + values['todo']
-            functions.add(action)
-            list_box.update(functions.get_todos())
+            new_todo = values['todo']
+            functions.add_todo(new_todo)
 
         case '🔄':
             list_box.update(functions.get_todos())
 
         case 'Edit':
-            rescue_me = True
+            if selected_todo is None:
+                continue
+            else:
+                replacement_todo = values['todo']
+                functions.replace_todo(selected_todo, replacement_todo)
 
         case 'Complete':
-            somecode = 0
+            if selected_todo is None:
+                continue
+            else:
+                functions.complete_todo(selected_todo)
 
         case 'Quit':
             break
@@ -54,12 +60,14 @@ while True:
             break
 
         case 'Selection':
-            todo_selected = list_box.get_indexes()
-            print(todo_selected)
+            selected_todo = list_box.get_indexes()[0]
+            print(selected_todo)
             continue
 
         case _:
             print('Something went wrong')
             break
+
+    list_box.update(functions.get_todos())
 
 window.close()
