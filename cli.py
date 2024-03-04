@@ -22,12 +22,11 @@ while True:
     if 'add' in user_command:
         todo = user_command[4:]
         functions.add_todo(todo)
+        continue
 
     elif 'edit' in user_command:
         index = int(user_command[5:]) - 1
         replacement_todo = input('Enter replacement todo: ')
-        print(index)
-        print(replacement_todo)
         functions.replace_todo(index, replacement_todo)
 
     elif 'complete' in user_command:
@@ -43,4 +42,6 @@ while True:
         break
 
     else:
-        continue
+        print('Invalid command.')
+
+    print("Du er teit.")

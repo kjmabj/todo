@@ -2,6 +2,7 @@ import os
 
 FILEPATH = 'files/todos.txt'
 file_exists = os.path.exists(FILEPATH)
+print(file_exists)
 
 if not file_exists:
     os.mkdir('files')

@@ -2,7 +2,7 @@ import functions
 import time
 import PySimpleGUI as sg
 
-sg.theme('DarkTeal')
+sg.theme('Dark')
 sg.set_options(font=('Jetbrains mono', 14))
 
 label = sg.Text('Type in a to-do:')
